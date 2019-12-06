@@ -101,7 +101,7 @@ createForm.addEventListener('submit', (e) => {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
-            console.log('File available at', downloadURL);
+            // console.log('File available at', downloadURL);
             downloadURLForIndexjs = downloadURL;
 
 
@@ -169,6 +169,8 @@ createForm.addEventListener('submit', (e) => {
             download: downloadURLForIndexjs
 
         }).then(() => {
+            // console.log('uploded to the database');
+
 
 
             const modals = document.querySelector('#modal-create');
