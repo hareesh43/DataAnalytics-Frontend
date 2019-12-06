@@ -58,7 +58,7 @@ createForm.addEventListener('submit', (e) => {
     // const file = e.target.files[0];
     const uploadTask = storageRef.child(createForm['title'].value + '/' + file.name).put(file);
 
-    console.log('file uploaded');
+    // console.log('file uploaded');
 
 
     uploadTask.on('state_changed', function (snapshot) {
