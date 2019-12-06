@@ -44,7 +44,7 @@ auth.onAuthStateChanged(user => {
     }
 
 });
-//upload new guide instance 
+//upload new  document 
 
 const createForm = document.querySelector('#create-form');
 var downloadURLForIndexjs;
@@ -106,61 +106,9 @@ createForm.addEventListener('submit', (e) => {
 
 
 
-            // db.collection('guides').add(
-            //     {
-            //         title: createForm['title'].value,
-            //         content: createForm['content'].value,
-            //         download: downloadURL
-
-            //     }).then(() => {
-
-
-            //         const modals = document.querySelector('#modal-create');
-
-            //         M.Modal.getInstance(modals).close();
-            //         createForm.reset();
-
-            //     }).catch((err) => {
-            //         console.log(err.message);
-
-            //     })
-
         });
     });
-
-
-    // console.log("listing uploaded documents in the firebase")
-    // // Create a reference under which you want to list
-    // var listRef = storageRef.child(createForm['title'].value + '/' + file.name);
-
-    // // Find all the prefixes and items.
-    // listRef.listAll().then(function (res) {
-    //     res.prefixes.forEach(function (folderRef) {
-    //         console.log(folderRef);
-
-    //         console.log("hello");
-
-
-    //         // All the prefixes under listRef.
-    //         // You may call listAll() recursively on them.
-    //     });
-    //     res.items.forEach(function (itemRef) {
-    //         console.log(itemRef);
-    //         console.log("hello hii");
-
-    //         // All the items under listRef.
-    //     });
-    // }).catch(function (error) {
-    //     console.log(error);
-
-    //     // Uh-oh, an error occurred!
-    // });
-
-
-
-
-
-
+    //upload the download link to database
 
     db.collection('guides').add(
         {
@@ -170,8 +118,6 @@ createForm.addEventListener('submit', (e) => {
 
         }).then(() => {
             // console.log('uploded to the database');
-
-
 
             const modals = document.querySelector('#modal-create');
 
@@ -196,14 +142,10 @@ const signup = document.querySelector('#signup-form');
 signup.addEventListener('submit', (e) => {
     e.preventDefault();
 
-
     //user info
 
     var email = signup['signup-email'].value;
     var pass = signup['signup-password'].value;
-
-
-
 
     //sign up user
     auth.createUserWithEmailAndPassword(email, pass).then(cred => {

@@ -62,19 +62,14 @@ const setUpGuides = (data) => {
         let html = '';
         data.forEach(doc => {
             const guide = doc.data();
-            console.log(guide);
+
             var downloadLink = guide.download;
-            console.log(downloadLink);
-            console.log(typeof (downloadLink));
 
 
-
-
-            //   <a href="https://firebasestorage.googleapis.com/v0/b/daproject-e907d.appspot.com/o/da%2Fu1_DA.pptx?alt=media&token=762d1255-7ceb-45a8-862a-34ba32f58c30>Download file</a>
-            // https://firebasestorage.googleapis.com/v0/b/daproject-e907d.appspot.com/o/hpc%2Fhill%20cipher.pdf?alt=media&token=de821c4a-8367-45fd-8779-a7ac443e7a58
             const li = `
+            
         
-        <li>
+        <li class = 'container'>
          <div class="collapsible-header grey lighten-4">${guide.title}</div>
          <div class="collapsible-body white">${guide.content}</div>
          <div class="collapsible-body white" >
@@ -84,6 +79,7 @@ const setUpGuides = (data) => {
 
          </div>
         </li>
+       
         `;
             html += li;
 
@@ -91,7 +87,10 @@ const setUpGuides = (data) => {
         guideList.innerHTML = html;
     }
     else {
-        guideList.innerHTML = `<h5 class = "center-allign" style = "  color: white;" >Login To view File List Uploaded</h5>`;
+        guideList.innerHTML = `<div class= 'container'>
+        <h3 class = "center #ff9800 orange" style = "  color: white;" >Login To view </h3>
+        <p class = 'white-text'>The student-Teacher interface was designed and configured to connect to Database to access Storage feature. The interface consists of feature to access course and download PDFs, PPTs and Word Docs for assignments and study material. 
+        </div>`;
 
     }
 
