@@ -13,6 +13,20 @@ adminform.addEventListener('submit', (e) => {
 
 });
 
+clickCounter = function () {
+    if (typeof (Storage) !== "undefined") {
+        if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount) + 1;
+        } else {
+            localStorage.clickcount = 1;
+        }
+        // document.getElementById("login").innerHTML = "You have clicked login the button " + localStorage.clickcount + " time(s).";
+
+        console.log("You have clicked login the button " + localStorage.clickcount + " time(s).")
+    }
+}
+
+
 
 
 //sign up state change
@@ -24,6 +38,8 @@ auth.onAuthStateChanged(user => {
             setUpUI(user);
 
         });
+        clickCounter();
+
 
 
         //database firestone
